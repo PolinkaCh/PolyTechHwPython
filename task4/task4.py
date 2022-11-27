@@ -1,4 +1,4 @@
-class Translators:
+class Translators:  # определяем класс переводчиков
     def __init__(self, first_name,  last_name, email, phone):
       self.first_name = first_name
       self.last_name = last_name
@@ -11,7 +11,7 @@ class Translators:
 translator = Translators("Лена", "Богатырёва", "Bog@mail.ru", 897658975) 
 print (translator.__str__())
 
-class Post:
+class Post:   # определяем класс инфрмации о новой работе
     def __init__(self,language,  translation_type,  movie_type, title, episode, duration,  rate,  deadline):
       self.language = language
       self.translation_type = translation_type
@@ -38,13 +38,13 @@ class Post:
 
         
         
-class Order(Post):
+class Order(Post):    #определяем класс о взятой работе, наследуемый из Post. Добавляем ему собственные методы.
     def __init__(self, receipt_date, translator, language,  translation_type,  movie_type, title, episode, duration,  rate,  deadline):
       super().__init__(language,  translation_type,  movie_type, title, episode, duration,  rate,  deadline)
       self.receipt_date = receipt_date
       self.translator = translator
     
-    def info(self):
+    def info(self):   #видоизменяем функцию info, показывая полиморфизм
         print("Взятый заказ")
         print("Язык: " + self.language)
         print("Вид перевода: " + self.translation_type)
